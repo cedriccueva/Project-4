@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cedric's Speech Project</title>
+    <style>
+        /* Base Reset */
+        body, h1, h2, h3, p, ul, blockquote, form {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Fullscreen Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure video covers the entire screen */
+            z-index: -1; /* Send the video behind all content */
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: rgba(245, 245, 245, 0.8); /* Semi-transparent overlay for better text readability */
+            color: #333; /* Dark Gray Text for Readability */
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: #1d3557; /* Dark Blue for a Professional and Calm Look */
+            color: #ffffff;
+            padding: 30px;
+            text-align: center;
+            border-bottom: 4px solid #a8dadc; /* Soft Light Blue Border for Contrast */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        .main-content {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        /* Article Section */
+        .article {
+            flex: 3;
+            background-color: #ffffff; /* White Background for Clarity */
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #a8dadc; /* Soft Blue Accent */
+            font-size: 1.1rem;
+        }
+
+        .article h2 {
+            color: #1d3557; /* Dark Blue for Headers */
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for better text legibility */
+        }
+
+        .article p {
+            color: #555555; /* Lighter Gray for Paragraphs */
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .article p:first-of-type {
+            font-weight: 500; /* Emphasize the first paragraph */
+        }
+
+        /* Blockquote for Memorable Lines */
+        .article blockquote {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #666666;
+            border-left: 4px solid #1d3557;
+            padding-left: 20px;
+            margin: 30px 0;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        /* Related Articles Section */
+        .related-articles {
+            margin-top: 30px;
+        }
+
+        .related-articles h3 {
+            color: #1d3557; /* Dark Blue for Subheadings */
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .related-articles div {
+            margin-bottom: 15px;
+        }
+
+        .related-articles a {
+            color: #0077b6; /* Professional Blue for Links */
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .related-articles a:hover {
+            color: #005f73; /* Darker Blue for Hover Effect */
+            text-decoration: underline;
+        }
+
+        /* Sidebar Section */
+        .sidebar {
+            flex: 1;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #1d3557; /* Dark Blue Border */
+        }
+
+        .sidebar h3 {
+            color: #1d3557;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul li a {
+            color: #0077b6;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .sidebar ul li a:hover {
+            color: #005f73;
+        }
+
+        /* Form for Feedback or Comments */
+        .feedback-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .feedback-form h3 {
+            font-size: 1.8rem;
+            color: #1d3557;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form input[type="text"],
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .feedback-form button {
+            background-color: #1d3557;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #a8dadc;
+        }
+
+        footer {
+            background-color: #1d3557;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border-top: 4px solid #a8dadc;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .article {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Video Background -->
+    <video class="video-background" autoplay loop muted>
+        <source src="path-to-your-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <header>
+        <h1>Cedric's Speech Project</h1>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <!-- Article Section -->
+            <section class="article">
+                <h2>Pulang Araw</h2>
+                <p>Colonel Yuta Saitoh stands as a figure of strategic brilliance and formidable presence. Known for his sharp intellect and mastery in warfare, he is a leader whose every move is calculated and deliberate. His ability to command the battlefield with precision is unmatched, and his words, like weapons, hold the power to influence both allies and adversaries alike.</p>
+                <p><strong>In the world of conflict and loyalty, Saitoh has proven himself as a master of both tactics and psychology.</strong> His influence extends beyond the confines of the battlefield, as he manipulates the delicate balance between trust and betrayal. His unwavering determination and ability to remain unseen in the shadows make him a formidable force, ensuring his success in the most challenging of situations.</p>
+
+                <!-- Memorable Line Blockquote -->
+                <blockquote>
+                    "I walk down the road, paving it with shattered and shredded dreams. I am a man of capability, a shadow in the night."
+                </blockquote>
+
+                <div class="related-articles">
+                    <h3>Related Articles</h3>
+                    <div><a href="#">The War on the Philippines</a></div>
+                    <div><a href="#">Japanese Occupation</a></div>
+                    <div><a href="#">The Struggle for Freedom</a></
