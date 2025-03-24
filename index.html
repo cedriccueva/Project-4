@@ -30,10 +30,38 @@
             line-height: 1.7;
         }
 
+        /* Navigation Bar */
+        nav {
+            background: linear-gradient(to right, #1d3557, #a8dadc); /* Gradient for Depth */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            padding: 5px 10px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #ffffff;
+            color: #1d3557;
+            border-radius: 5px;
+        }
+
         header {
             background-color: #1d3557; /* Dark Blue for a Professional and Calm Look */
             color: #ffffff;
-            padding: 30px;
+            padding: 80px 30px 30px; /* Adjusted for Navbar Space */
             text-align: center;
             border-bottom: 4px solid #a8dadc; /* Soft Light Blue Border for Contrast */
         }
@@ -108,15 +136,24 @@
             margin-bottom: 15px;
         }
 
+        /* Card Style for Related Articles */
         .related-articles a {
             color: #0077b6; /* Professional Blue for Links */
             text-decoration: none;
             font-weight: 500;
+            display: block;
+            padding: 15px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
         }
 
         .related-articles a:hover {
-            color: #005f73; /* Darker Blue for Hover Effect */
-            text-decoration: underline;
+            background-color: #e0f7fa;
+            color: #005f73;
+            border-color: #a8dadc;
         }
 
         /* Sidebar Section */
@@ -214,10 +251,27 @@
             .article {
                 margin-bottom: 30px;
             }
+
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                margin: 10px 0;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+    </nav>
 
     <!-- Video Background -->
     <video class="video-background" autoplay loop muted>
@@ -246,4 +300,32 @@
                     <h3>Related Articles</h3>
                     <div><a href="#">The War on the Philippines</a></div>
                     <div><a href="#">Japanese Occupation</a></div>
-                    <div><a href="#">The Struggle for Freedom</a></
+                    <div><a href="#">The Struggle for Freedom</a></div>
+                </div>
+            </section>
+
+            <!-- Sidebar Section -->
+            <aside class="sidebar">
+                <h3>Side Menu</h3>
+                <ul>
+                    <li><a href="#">Resources</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">More Projects</a></li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+            <h3>Leave a Comment</h3>
+            <input type="text" placeholder="Your Name">
+            <textarea placeholder="Your Message"></textarea>
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Cedric's Speech Project. All rights reserved.</p>
+    </footer>
+</body>
+</html>
